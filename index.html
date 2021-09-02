@@ -9,13 +9,28 @@
             <li>allows two-way, event driven communication between web browser and server</li>
             <li>great for real time apps,</li>
         </ul>
+        <form style="display: flex;" onsubmit="submitMessage()">
+            <div>
+              <label for="example">Send a message to the server</label>
+              <input id="wsclientmessage" type="text" name="text">
+            </div>
+            <div>
+              <input type="submit" value="Send message">
+            </div>
+          </form>
         <script>
+            const submitMessage = () => {
+                const message = document.getElementById("wsclientmessage").value;
+                console.log(message);
+                webSocket.send(message);
+            }
+
             const webSocket = new WebSocket("ws://localhost:8082");
 
             webSocket.addEventListener("open", ws => {
                 console.log("Hi! Connected.");
 
-                ws.send("Hey, how's it going?");
+                webSocket.send("Hey, how's it going?");
             });
 
             webSocket.addEventListener("message", ({ data }) => {
