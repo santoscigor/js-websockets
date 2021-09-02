@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+    </head>
+    <body>
+        <h1>WebSockets Basics</h1>
+        <ul>
+            <li>allows two-way, event driven communication between web browser and server</li>
+            <li>great for real time apps,</li>
+        </ul>
+        <script>
+            const webSocket = new WebSocket("ws://localhost:8082");
+
+            webSocket.addEventListener("open", ws => {
+                console.log("Hi! Connected.");
+
+                ws.send("Hey, how's it going?");
+            });
+
+            webSocket.addEventListener("message", ({ data }) => {
+                console.log(data);
+            });
+        </script>
+    </body>
+</html>
