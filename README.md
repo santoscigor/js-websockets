@@ -1,3 +1,3 @@
 # JS-WebSocket
 
-Uma simples implementação de web-sockets cliente-servidor
+Uma simples implementação de websockets cliente-servidor
